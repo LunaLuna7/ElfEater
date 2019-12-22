@@ -134,9 +134,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(5f);
         horizontalSpeed = originalHorizontalSpeed;
     }
-
-    private void OnCollisionStay2D(Collision collision)
-    {
-        
-    }
 }
