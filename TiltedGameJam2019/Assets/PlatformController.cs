@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlatformController : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class PlatformController : MonoBehaviour
 
     void Awake()
     {
-        weight = Random.Range(1, maxWeight+1);
         SetColor();
+        SetWeight();
     }
 
     void Update()
@@ -31,6 +32,24 @@ public class PlatformController : MonoBehaviour
             color = "p2";
         else
             color = "normal";
+
+    }
+
+    private void SetWeight()
+    {
+        //ChangeSprite
+        TextMeshPro textWeight = this.GetComponentInChildren<TextMeshPro>();
+
+        if (color == "normal")
+        {
+            textWeight.text = "";
+        }
+        else
+        {
+            weight = Random.Range(1, maxWeight + 1);
+            textWeight.text = weight.ToString();
+
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
