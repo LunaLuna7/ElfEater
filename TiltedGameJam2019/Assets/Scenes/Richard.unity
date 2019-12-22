@@ -749,7 +749,7 @@ MonoBehaviour:
   cam: {fileID: 49331001}
   camX: -5.55
   cookie: {fileID: 6559643840263741824, guid: 09442ab437240c747ab13262a8d6ae81, type: 3}
-  cookieProb: 0.01
+  cookieProb: 0.1
   maxCamDistance: 5
 --- !u!4 &333942071
 Transform:

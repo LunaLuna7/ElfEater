@@ -99,7 +99,6 @@ public class PlatformGenerator : MonoBehaviour
     private void SpawnCookie(GameObject block)
     {
         float rand = Random.Range(0f, 1f);
-        Debug.Log("probability = " + cookieProb + "; random = " + rand);
         if (rand < cookieProb)
         {
             Vector2 pos = block.transform.position;

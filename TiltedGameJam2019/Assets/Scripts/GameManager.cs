@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,16 +14,39 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject gameOverPanel, pausePanel;
 
+    [SerializeField]
+    int score, highscore;
+
+    [SerializeField]
+    TextMeshProUGUI scoreUI, highscoreUI;
+
     void Awake()
     {
         if (instance == null)
             instance = this;
 
         gameIsOver = false;
+
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            highscore = PlayerPrefs.GetInt("Highscore");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("HighScore", 0);
+        }
+        
+        highscoreUI.SetText("Highscore:\n" + highscore);
     }
 
     void Update()
     {
+        scoreUI.SetText("Score:\n" + score);
+        if (score > highscore)
+        {
+            highscoreUI.SetText("Highscore:\n" + score);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
@@ -32,6 +56,16 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public void IncrementScore(int addition)
+    {
+        score += addition;
     }
 
     private void TogglePause()
@@ -50,6 +84,11 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        if (score > highscore)
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+        }
+
         gameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
