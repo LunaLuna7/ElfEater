@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private GameObject gift;
+    [SerializeField]
+    private TextMeshProUGUI textGiftUI;
 
     [Space]
     [Header("Ground")]
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         originalHorizontalSpeed = horizontalSpeed;
         horizontalDashSpeed = horizontalSpeed * 1.2f;    
+        GivePartnerWeight(0);
     }
 
     private void Update()
@@ -111,11 +114,13 @@ public class PlayerMovement : MonoBehaviour
         currentWeigth -= argValue;
         UpdateTextWeight(currentWeigth);
         gift.transform.localScale -= new Vector3(.1f,.1f,.1f);
+        textGiftUI.text = currentWeigth.ToString();
 
         //The partner
         partner.currentWeigth += argValue;
         partner.UpdateTextWeight(partner.currentWeigth);
         partner.gift.transform.localScale += new Vector3(.1f,.1f,.1f);
+        partner.textGiftUI.text = partner.currentWeigth.ToString();
     }
 
     public void Dash()
