@@ -19,6 +19,7 @@ public class PlayerKiller : MonoBehaviour
     private void Update() 
     {
         rb.velocity = new Vector3(0, -speed, 0);
+        speed += .01f * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other) 

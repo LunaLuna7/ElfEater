@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start() 
     {
         originalHorizontalSpeed = horizontalSpeed;
-        horizontalDashSpeed = horizontalSpeed * 1.2f;    
+        horizontalDashSpeed = horizontalSpeed * 1.4f;    
         GivePartnerWeight(0);
     }
 
