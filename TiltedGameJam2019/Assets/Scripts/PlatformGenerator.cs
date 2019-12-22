@@ -20,6 +20,12 @@ public class PlatformGenerator : MonoBehaviour
         [SerializeField]
         float camX; //hardcoded right now
 
+        [SerializeField]
+        GameObject cookie;
+
+        [SerializeField]
+        float cookieProb = 0.01f;
+
     private float xSpawnValue;
 
     private float prevCamPosition;
@@ -75,6 +81,8 @@ public class PlatformGenerator : MonoBehaviour
                     normalCount+= len;
 
                 num += len;
+
+                SpawnCookie(childBlock);
             }
             else
             {
@@ -85,6 +93,18 @@ public class PlatformGenerator : MonoBehaviour
         if (normalCount == platformLen)
         {
             Destroy(allBlocks[Random.Range(0, platformLen)]);
+        }
+    }
+
+    private void SpawnCookie(GameObject block)
+    {
+        float rand = Random.Range(0f, 1f);
+        Debug.Log("probability = " + cookieProb + "; random = " + rand);
+        if (rand < cookieProb)
+        {
+            Vector2 pos = block.transform.position;
+            GameObject newcookie = Instantiate(cookie, new Vector2(pos.x, pos.y + 1), Quaternion.identity);
+            newcookie.transform.parent = block.transform;
         }
     }
 
