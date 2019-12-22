@@ -23,7 +23,7 @@ public class PlayerKiller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.CompareTag("player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("EndGame");
         }    
