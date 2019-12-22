@@ -243,6 +243,8 @@ MonoBehaviour:
   platformLen: 10
   cam: {fileID: 1898102101}
   camX: -4.896214
+  cookie: {fileID: 0}
+  cookieProb: 0.01
   maxCamDistance: 5
 --- !u!4 &142013531
 Transform:
@@ -1014,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a064f8ad795fe2641b9cbdc0b44867eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2
   rb: {fileID: 878374270}
 --- !u!61 &878374272
 BoxCollider2D:

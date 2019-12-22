@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start() 
     {
         originalHorizontalSpeed = horizontalSpeed;
-        horizontalDashSpeed = horizontalSpeed * 1.2f;    
+        horizontalDashSpeed = horizontalSpeed * 2;    
     }
 
     private void Update()
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            targetVelocity.y = -fallSpeed - (currentWeigth * .5f);
+            targetVelocity.y = -fallSpeed - (currentWeigth * 1.5f);
         }
     }
 
@@ -126,12 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator NormalSpeed()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         horizontalSpeed = originalHorizontalSpeed;
-    }
-
-    private void OnCollisionStay2D(Collision collision)
-    {
-        
     }
 }
