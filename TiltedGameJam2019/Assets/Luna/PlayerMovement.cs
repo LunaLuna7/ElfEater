@@ -16,8 +16,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] 
     private float horizontalSpeed;
 
+    [Space]
+    [Header("Components")]
     [SerializeField]
     private Rigidbody2D rb;
+    [SerializeField]
+    private SpriteRenderer sprite;
+    [SerializeField]
+    private Animator anim;
+
+    [Space]
+    [Header("Ground")]
+
     [SerializeField]
     private bool m_Grounded = false;
     
@@ -33,10 +43,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private TextMeshPro textWeight;
     private Vector2 targetVelocity;
+    private float dir;
     
     private void Update()
     {
        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
+       anim.SetBool("Grounded", m_Grounded);
        
        if (Input.GetButtonDown("Transfer" + playerNumber))
        {
@@ -49,11 +61,21 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleGravity();
         rb.velocity = targetVelocity;
+
+        if (dir > 0)
+        {
+            sprite.flipX = false;
+        }
+        else if(dir < 0)
+        {
+            sprite.flipX = true;
+        }
     }
 
     private void HandleMovement()
     {
-        targetVelocity.x = Input.GetAxisRaw("Horizontal" + playerNumber) * horizontalSpeed;
+        dir = Input.GetAxisRaw("Horizontal" + playerNumber);
+        targetVelocity.x = dir * horizontalSpeed;
     }
     private void HandleGravity()
     {
@@ -63,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            targetVelocity.y = -fallSpeed;
+            targetVelocity.y = -fallSpeed - (currentWeigth * 2);
         }
     }
 
