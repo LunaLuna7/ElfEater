@@ -72,7 +72,7 @@ public class PlatformGenerator : MonoBehaviour
                 childBlock.transform.parent = motherPlatform.transform;
 
                 if (!(childBlock.gameObject.name.Contains("p1") || childBlock.gameObject.name.Contains("p2")))
-                    normalCount++;
+                    normalCount+= len;
 
                 num += len;
             }
