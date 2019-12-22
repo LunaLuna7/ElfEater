@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private GameObject gift;
 
     [Space]
     [Header("Ground")]
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
        anim.SetBool("Grounded", m_Grounded);
        
-       if (Input.GetButtonDown("Transfer" + playerNumber))
+       if (Input.GetButtonDown("Transfer" + playerNumber) && currentWeigth > 0 && currentWeigth < 11)
        {
            GivePartnerWeight(1);
        }
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            targetVelocity.y = -fallSpeed - (currentWeigth * 2);
+            targetVelocity.y = -fallSpeed - (currentWeigth * 1.5f);
         }
     }
 
@@ -99,9 +101,11 @@ public class PlayerMovement : MonoBehaviour
         //This player
         currentWeigth -= argValue;
         UpdateTextWeight(currentWeigth);
+        gift.transform.localScale -= new Vector3(.1f,.1f,.1f);
 
         //The partner
         partner.currentWeigth += argValue;
         partner.UpdateTextWeight(partner.currentWeigth);
+        partner.gift.transform.localScale += new Vector3(.1f,.1f,.1f);
     }
 }
