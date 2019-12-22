@@ -15,6 +15,10 @@ public class TitleScript : MonoBehaviour
     public Button Credit;
     public Button CreditClose;
 
+    [SerializeField] Image FadeImage;
+    bool loadFinish = false;
+    public bool pauseInput = false;
+
     private void Start()
     {
         Button PlayButton = Play.GetComponent<Button>();
@@ -50,7 +54,39 @@ public class TitleScript : MonoBehaviour
 
     IEnumerator LoadingScene(string scene)
     {
-        yield return new WaitForEndOfFrame();
+        yield return StartCoroutine(FadeIn());
         SceneManager.LoadScene(scene);
+    }
+
+    IEnumerator FadeIn()
+    {
+        Color change = FadeImage.color;
+        pauseInput = true;
+        yield return new WaitForSecondsRealtime(1);
+        while (FadeImage.color.a < 1 && loadFinish == false)
+        {
+            change.a += Time.deltaTime;
+            FadeImage.color = change;
+
+            yield return null;
+            if (FadeImage.color.a >= 1)
+            {
+                loadFinish = true;
+                from.GetComponent<Canvas>().enabled = false;
+            }
+        }
+        while (loadFinish && FadeImage.color.a >= 0)
+        {
+            change.a -= Time.deltaTime;
+            FadeImage.color = change;
+            yield return null;
+            to.GetComponent<Canvas>().enabled = true;
+            if (FadeImage.color.a <= 0)
+            {
+                loadFinish = false;
+                pauseInput = false;
+            }
+        }
+
     }
 }
