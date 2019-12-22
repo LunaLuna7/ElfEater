@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
         highscoreUI.SetText("Highscore:\n" + highscore);
     }
 
+    private void Start()
+    {
+        gameIsOver = false;
+        Time.timeScale = 1;
+    }
+
     void Update()
     {
         scoreUI.SetText("Score:\n" + score);
