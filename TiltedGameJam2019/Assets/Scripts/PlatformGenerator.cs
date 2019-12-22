@@ -48,13 +48,15 @@ public class PlatformGenerator : MonoBehaviour
     {
         float ySpawnValue = cam.transform.position.y - Random.Range(1, 1) - START_OFFSET;
         GameObject motherPlatform = Instantiate(platform, new Vector2(xSpawnValue, ySpawnValue), Quaternion.identity);
+        int normalCount = 0;
+        List<GameObject> allBlocks = new List<GameObject>();
 
         int num = 0;
         while (num < platformLen) 
         {
             int blockIndex;
             if (num > 5)
-                blockIndex = Random.Range(-3, blocks.Count - (3 * (platformLen - num) ));
+                blockIndex = Random.Range(-3, blocks.Count - (3 * (platformLen - num)));
             else
                 blockIndex = Random.Range(-3, blocks.Count);
 
@@ -65,18 +67,25 @@ public class PlatformGenerator : MonoBehaviour
                 float xBlock = (xSpawnValue + (blocks[0].GetComponent<SpriteRenderer>().bounds.size.x) * (num)) + blocks[blockIndex].GetComponent<SpriteRenderer>().bounds.size.x / 2;
 
                 GameObject childBlock = Instantiate(blocks[blockIndex], new Vector2(xBlock, ySpawnValue), Quaternion.identity);
+                allBlocks.Add(childBlock);
+
                 childBlock.transform.parent = motherPlatform.transform;
+
+                if (!(childBlock.gameObject.name.Contains("p1") || childBlock.gameObject.name.Contains("p2")))
+                    normalCount+= len;
 
                 num += len;
             }
             else
             {
                 num++;
-            }
-
-                
+            }    
         }
 
+        if (normalCount == platformLen)
+        {
+            Destroy(allBlocks[Random.Range(0, platformLen)]);
+        }
     }
 
     private bool CheckCameraSurpassDistance()
