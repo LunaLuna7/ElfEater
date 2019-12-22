@@ -46,7 +46,16 @@ public class PlayerMovement : MonoBehaviour
     private TextMeshPro textWeight;
     private Vector2 targetVelocity;
     private float dir;
+
+    private float horizontalDashSpeed;
+    private float originalHorizontalSpeed;
     
+    private void Start() 
+    {
+        originalHorizontalSpeed = horizontalSpeed;
+        horizontalDashSpeed = horizontalSpeed * 2;    
+    }
+
     private void Update()
     {
        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
@@ -107,5 +116,17 @@ public class PlayerMovement : MonoBehaviour
         partner.currentWeigth += argValue;
         partner.UpdateTextWeight(partner.currentWeigth);
         partner.gift.transform.localScale += new Vector3(.1f,.1f,.1f);
+    }
+
+    public void Dash()
+    {
+        horizontalSpeed = horizontalDashSpeed;
+        StartCoroutine(NormalSpeed());
+    }
+
+    private IEnumerator NormalSpeed()
+    {
+        yield return new WaitForSeconds(2f);
+        horizontalSpeed = originalHorizontalSpeed;
     }
 }
