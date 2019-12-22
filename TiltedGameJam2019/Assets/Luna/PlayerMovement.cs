@@ -78,11 +78,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (dir > 0)
         {
-            sprite.flipX = false;
+            sprite.flipX = true;
         }
         else if(dir < 0)
         {
-            sprite.flipX = true;
+            sprite.flipX = false;
         }
     }
 
