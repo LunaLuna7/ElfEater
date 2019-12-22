@@ -1001,6 +1001,7 @@ MonoBehaviour:
   rb: {fileID: 964117047}
   sprite: {fileID: 0}
   anim: {fileID: 0}
+  gift: {fileID: 0}
   m_Grounded: 1
   m_GroundLayer:
     serializedVersion: 2
@@ -1336,6 +1337,7 @@ MonoBehaviour:
   rb: {fileID: 1105679122}
   sprite: {fileID: 0}
   anim: {fileID: 0}
+  gift: {fileID: 0}
   m_Grounded: 1
   m_GroundLayer:
     serializedVersion: 2
