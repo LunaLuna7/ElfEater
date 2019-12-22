@@ -10551,8 +10551,8 @@ MonoBehaviour:
   platformLen: 10
   cam: {fileID: 2042978370}
   camX: -5.55
-  cookie: {fileID: 0}
-  cookieProb: 0.01
+  cookie: {fileID: 6559643840263741824, guid: 09442ab437240c747ab13262a8d6ae81, type: 3}
+  cookieProb: 0.03
   maxCamDistance: 5
 --- !u!4 &594786721
 Transform:

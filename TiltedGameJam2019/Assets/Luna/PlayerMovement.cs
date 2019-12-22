@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start() 
     {
         originalHorizontalSpeed = horizontalSpeed;
-        horizontalDashSpeed = horizontalSpeed * 2;    
+        horizontalDashSpeed = horizontalSpeed * 1.2f;    
     }
 
     private void Update()
@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator NormalSpeed()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         horizontalSpeed = originalHorizontalSpeed;
     }
 
