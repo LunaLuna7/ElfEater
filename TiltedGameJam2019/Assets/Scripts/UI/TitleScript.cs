@@ -29,18 +29,23 @@ public class TitleScript : MonoBehaviour
     public void CloseCredit()
     {
         CreditCanvas.gameObject.SetActive(false);
-        TitleCanvas.gameObject.SetActive(true);
+        //TitleCanvas.gameObject.SetActive(true);
     }
 
     public void CreditScreen()
     {
         CreditCanvas.gameObject.SetActive(true);
-        TitleCanvas.gameObject.SetActive(false);
+        //TitleCanvas.gameObject.SetActive(false);
     }
 
     public void StartGame()
     {
         StartCoroutine(LoadingScene(GameScene));
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     IEnumerator LoadingScene(string scene)

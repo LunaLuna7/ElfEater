@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 41563425}
   - component: {fileID: 41563424}
   - component: {fileID: 41563423}
+  - component: {fileID: 41563427}
+  - component: {fileID: 41563426}
   m_Layer: 5
   m_Name: RightStringlight
   m_TagString: Untagged
@@ -155,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 544.5, y: -6.5}
+  m_AnchoredPosition: {x: 537, y: -6.5}
   m_SizeDelta: {x: 31.25, y: 843.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &41563423
@@ -226,7 +228,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -125516980175554750, guid: 2240664819b349b45943282764b7c386,
+  m_Sprite: {fileID: -4804027997132169315, guid: 2240664819b349b45943282764b7c386,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -245,6 +247,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41563421}
   m_CullTransparentMesh: 0
+--- !u!111 &41563426
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41563421}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &41563427
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41563421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5dc2ef1c40582a44bd6dc660884f69e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &648035917
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +359,7 @@ GameObject:
   - component: {fileID: 662166638}
   - component: {fileID: 662166637}
   - component: {fileID: 662166636}
+  - component: {fileID: 662166639}
   m_Layer: 5
   m_Name: LeftStringlight
   m_TagString: Untagged
@@ -402,6 +439,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662166634}
   m_CullTransparentMesh: 0
+--- !u!95 &662166639
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662166634}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02ff89a29b239c9408e43252ff30220b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1362847237
 GameObject:
   m_ObjectHideFlags: 0
