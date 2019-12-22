@@ -59,7 +59,6 @@ public class PlatformGenerator : MonoBehaviour
                 blockIndex = Random.Range(-3, blocks.Count);
 
             int len = (int) Mathf.Ceil((float) (blockIndex+1) / 3);
-            print(len);
 
             if (blockIndex >= 0)
             {
@@ -85,8 +84,4 @@ public class PlatformGenerator : MonoBehaviour
         return Mathf.Abs(prevCamPosition - cam.transform.position.y) > maxCamDistance;
     }
 
-    private void CheckDestroy()
-    {
-           
-    }
 }
