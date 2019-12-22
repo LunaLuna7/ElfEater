@@ -90,7 +90,7 @@ public class PlatformGenerator : MonoBehaviour
             }    
         }
 
-        if (normalCount == (platformLen-2))
+        if (normalCount >= (platformLen-2))
         {
             Destroy(allBlocks[Random.Range(0, platformLen)]);
         }
