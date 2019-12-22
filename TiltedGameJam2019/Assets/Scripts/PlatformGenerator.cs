@@ -14,40 +14,60 @@ public class PlatformGenerator : MonoBehaviour
         [SerializeField]
         int platformLen = 10;
 
+        [SerializeField]
+        Camera cam;
+
+        [SerializeField]
+        float camX; //hardcoded right now
+
     private float xSpawnValue;
+
+    private float prevCamPosition;
+    [SerializeField]
+    private float maxCamDistance;
+    private const float START_OFFSET = 20f;
+
+
 
     private void Awake()
     {
-        xSpawnValue = Camera.main.transform.position.x - (Camera.main.pixelWidth / 2);
+        xSpawnValue = camX;
+        prevCamPosition = cam.transform.position.y + 999999;
     }
 
     private void Update()
     {
-        SpawnPlatform();
+        if (CheckCameraSurpassDistance()) 
+        {
+            prevCamPosition = cam.transform.position.y;
+            SpawnPlatform();
+        }
     }
 
     private void SpawnPlatform()
     {
-        float ySpawnValue = Camera.main.transform.position.y + Random.Range( Camera.main.pixelHeight, 2 * Camera.main.pixelHeight);
-        Instantiate(platform, new Vector2(xSpawnValue, ySpawnValue), Quaternion.identity);
+        float ySpawnValue = cam.transform.position.y - Random.Range(1, 1) - START_OFFSET;
+        GameObject motherPlatform = Instantiate(platform, new Vector2(xSpawnValue, ySpawnValue), Quaternion.identity);
 
         int num = 0;
         while (num < platformLen) 
         {
             int blockIndex;
             if (num > 5)
-                blockIndex = Random.Range(-1, blocks.Count - (3 * (platformLen - num) ));
+                blockIndex = Random.Range(-3, blocks.Count - (3 * (platformLen - num) ));
             else
-                blockIndex = Random.Range(-1, blocks.Count);
+                blockIndex = Random.Range(-3, blocks.Count);
 
             int len = (int) Mathf.Ceil((float) (blockIndex+1) / 3);
             print(len);
 
-            if (blockIndex != -1)
+            if (blockIndex >= 0)
             {
                 float xBlock = (xSpawnValue + (blocks[0].GetComponent<SpriteRenderer>().bounds.size.x) * (num)) + blocks[blockIndex].GetComponent<SpriteRenderer>().bounds.size.x / 2;
 
-                Instantiate(blocks[blockIndex], new Vector2(xBlock, ySpawnValue), Quaternion.identity);
+                GameObject childBlock = Instantiate(blocks[blockIndex], new Vector2(xBlock, ySpawnValue), Quaternion.identity);
+                childBlock.transform.parent = motherPlatform.transform;
+
                 num += len;
             }
             else
@@ -60,8 +80,13 @@ public class PlatformGenerator : MonoBehaviour
 
     }
 
-    private void Destroy()
+    private bool CheckCameraSurpassDistance()
     {
-        
+        return Mathf.Abs(prevCamPosition - cam.transform.position.y) > maxCamDistance;
+    }
+
+    private void CheckDestroy()
+    {
+           
     }
 }
