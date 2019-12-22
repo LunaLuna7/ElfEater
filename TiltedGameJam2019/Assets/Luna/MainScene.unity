@@ -435,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   partner: {fileID: 811085440}
-  fallSpeed: 2.5
+  fallSpeed: 1
   horizontalSpeed: 10
   rb: {fileID: 193531643}
   sprite: {fileID: 193531645}
@@ -10551,6 +10551,8 @@ MonoBehaviour:
   platformLen: 10
   cam: {fileID: 2042978370}
   camX: -5.55
+  cookie: {fileID: 0}
+  cookieProb: 0.01
   maxCamDistance: 5
 --- !u!4 &594786721
 Transform:
@@ -11139,7 +11141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 2
   partner: {fileID: 193531644}
-  fallSpeed: 2.5
+  fallSpeed: 1
   horizontalSpeed: 10
   rb: {fileID: 811085439}
   sprite: {fileID: 811085441}

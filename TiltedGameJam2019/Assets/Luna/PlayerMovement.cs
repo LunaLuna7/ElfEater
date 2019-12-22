@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            targetVelocity.y = -fallSpeed - (currentWeigth * 1.5f);
+            targetVelocity.y = -fallSpeed - (currentWeigth * .5f);
         }
     }
 
