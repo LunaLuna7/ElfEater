@@ -61,7 +61,6 @@ public class TitleScript : MonoBehaviour
     IEnumerator FadeIn()
     {
         Color change = FadeImage.color;
-        pauseInput = true;
         yield return new WaitForSecondsRealtime(1);
         while (FadeImage.color.a < 1 && loadFinish == false)
         {
@@ -72,7 +71,6 @@ public class TitleScript : MonoBehaviour
             if (FadeImage.color.a >= 1)
             {
                 loadFinish = true;
-                from.GetComponent<Canvas>().enabled = false;
             }
         }
         while (loadFinish && FadeImage.color.a >= 0)
@@ -80,11 +78,9 @@ public class TitleScript : MonoBehaviour
             change.a -= Time.deltaTime;
             FadeImage.color = change;
             yield return null;
-            to.GetComponent<Canvas>().enabled = true;
             if (FadeImage.color.a <= 0)
             {
                 loadFinish = false;
-                pauseInput = false;
             }
         }
 
