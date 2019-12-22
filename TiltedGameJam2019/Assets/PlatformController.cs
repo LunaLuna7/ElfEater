@@ -66,4 +66,18 @@ public class PlatformController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D other) 
+    {
+        GameObject collidedPlayer = other.gameObject;
+        PlayerMovement playerScript = collidedPlayer.GetComponent<PlayerMovement>();
+
+        if ((color == "p1" && collidedPlayer.name == "Player1") || (color == "p2" && collidedPlayer.name == "Player2"))
+        {
+            if (playerScript.currentWeigth >= weight)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
 }
