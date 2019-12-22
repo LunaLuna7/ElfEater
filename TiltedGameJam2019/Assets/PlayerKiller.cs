@@ -25,7 +25,7 @@ public class PlayerKiller : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("EndGame");
+            GameManager.instance.gameIsOver = true;
         }    
     }
 }

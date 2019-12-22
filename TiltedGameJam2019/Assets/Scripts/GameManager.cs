@@ -5,21 +5,20 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
+
 
     [Header("Inspector Header")]
-        [SerializeField]
-        bool gameIsOver;
+    public bool gameIsOver;
 
-        [SerializeField]
-        GameObject gameOverPanel, pausePanel;
+    [SerializeField]
+    GameObject gameOverPanel, pausePanel;
 
     void Awake()
     {
         if (instance == null)
             instance = this;
-        
-        gameIsOver = false; 
+
+        gameIsOver = false;
     }
 
     void Update()
@@ -52,5 +51,6 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 }
