@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2103071}
   - component: {fileID: 2103070}
   - component: {fileID: 2103069}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 193531643}
   - component: {fileID: 193531647}
   - component: {fileID: 193531648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -981,7 +981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 214702466}
   - component: {fileID: 214702467}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11600,7 +11600,7 @@ GameObject:
   - component: {fileID: 595611210}
   - component: {fileID: 595611211}
   - component: {fileID: 595611209}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12264,7 +12264,7 @@ GameObject:
   - component: {fileID: 811085439}
   - component: {fileID: 811085438}
   - component: {fileID: 811085443}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -12588,7 +12588,7 @@ GameObject:
   - component: {fileID: 854267195}
   - component: {fileID: 854267194}
   - component: {fileID: 854267193}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12684,7 +12684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903272452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -14174,7 +14174,7 @@ GameObject:
   - component: {fileID: 1423004333}
   - component: {fileID: 1423004332}
   - component: {fileID: 1423004331}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14522,7 +14522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1536148498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -15066,7 +15066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702770043}
   - component: {fileID: 1702770044}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15576,7 +15576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042978368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.57965183, y: 0.0000023841858, z: -10}
+  m_LocalPosition: {x: -0.5784378, y: 0.0000023841858, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 208298937}
